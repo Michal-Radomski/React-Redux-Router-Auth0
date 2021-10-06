@@ -4,7 +4,7 @@ const Component4 = (props) => {
   return (
     <div>
       Component4 Component {props.match.params.id}
-      {console.log(props)}
+      {/* {console.log(props)} */}
     </div>
   );
 };
