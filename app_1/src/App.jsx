@@ -10,6 +10,7 @@ import Container2 from "./containers/Container2";
 import Container3 from "./containers/Container3";
 import Container4 from "./containers/Container4";
 import Container5 from "./containers/Container5";
+import Container6 from "./containers/Container6";
 
 class App extends Component {
   // name1 = "Mich";
@@ -35,6 +36,8 @@ class App extends Component {
         <Container3 />
         <Container4 />
         <Container5 />
+        <br />
+        <Container6 />
       </div>
     );
   }
