@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 
 import * as ACTIONS from "../store/actions/actions";
+import Auth0 from "../utils/auth0";
+
+const auth0 = new Auth0();
 
 class Container6 extends Component {
   render() {
@@ -9,6 +12,9 @@ class Container6 extends Component {
 
     return (
       <div>
+        <br />
+        <button onClick={() => auth0.login()}>LogIn</button>
+        <br />
         <button onClick={() => console.log(this.props.stateprop1, this.props.user_text)}>Get State</button>
         <button onClick={() => this.props.action1()}>Set True</button>
         <button onClick={() => this.props.action2()}>Set False</button>
