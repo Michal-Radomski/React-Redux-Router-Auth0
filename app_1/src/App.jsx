@@ -5,12 +5,13 @@ import React, {Component} from "react";
 import Counter from "./Counter";
 import Component2 from "./Component2";
 import Component1 from "./functional/Component1";
-import Container1 from "./containers/Container1";
+// import Container1 from "./containers/Container1";
 import Container2 from "./containers/Container2";
 import Container3 from "./containers/Container3";
 import Container4 from "./containers/Container4";
 import Container5 from "./containers/Container5";
 import Container6 from "./containers/Container6";
+import Routes from "./store/Routes";
 
 class App extends Component {
   // name1 = "Mich";
@@ -31,13 +32,14 @@ class App extends Component {
         <Counter />
         <Component2 />
         <Component1 name="Mich" age="40" />
-        <Container1 nickname="Ojejku" />
+        {/* <Container1 nickname="Ojejku" /> */}
         <Container2 />
         <Container3 />
         <Container4 />
         <Container5 />
         <br />
         <Container6 />
+        <Routes />
       </div>
     );
   }

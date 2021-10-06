@@ -16,7 +16,7 @@ class Container1 extends Component {
   render() {
     return (
       <div>
-        {this.props.nickname}
+        {/* {this.props.nickname} */}
         <br />
         <button onClick={() => this.changeState()}>Change State</button>
         <button onClick={() => this.setState({stateprop1: "New State2"})}>Change State2</button>
