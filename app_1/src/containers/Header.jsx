@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
 class Header extends Component {
   state = {
@@ -27,9 +28,26 @@ class Header extends Component {
         <Link to="/Component3" style={{padding: "5px"}}>
           Component3
         </Link> */}
+        <Link to="/Container6" style={{padding: "5px"}}>
+          Component6
+        </Link>
+        <Link to="/privateroute" style={{padding: "5px"}}>
+          Private-Route
+        </Link>
+        {!this.props.is_authenticated ? (
+          <button onClick={() => this.props.auth0.login()}>LogIn</button>
+        ) : (
+          <button onClick={() => this.props.auth0.logout()}>LogOut</button>
+        )}
       </div>
     );
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    is_authenticated: state.auth0_reducer.is_authenticated,
+  };
+}
+
+export default connect(mapStateToProps)(Header);

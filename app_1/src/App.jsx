@@ -10,7 +10,7 @@ import Container2 from "./containers/Container2";
 import Container3 from "./containers/Container3";
 import Container4 from "./containers/Container4";
 import Container5 from "./containers/Container5";
-import Container6 from "./containers/Container6";
+// import Container6 from "./containers/Container6";
 import Routes from "./store/Routes";
 
 class App extends Component {
@@ -38,7 +38,7 @@ class App extends Component {
         <Container4 />
         <Container5 />
         <br />
-        <Container6 />
+        {/* <Container6 /> */}
         <Routes />
       </div>
     );
