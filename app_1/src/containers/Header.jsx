@@ -32,7 +32,10 @@ class Header extends Component {
           Component6
         </Link>
         <Link to="/privateroute" style={{padding: "5px"}}>
-          Private-Route
+          PrivateRoute
+        </Link>
+        <Link to="/profile" style={{padding: "5px"}}>
+          Profile
         </Link>
         {!this.props.is_authenticated ? (
           <button onClick={() => this.props.auth0.login()}>LogIn</button>

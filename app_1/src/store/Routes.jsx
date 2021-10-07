@@ -1,5 +1,6 @@
 import React from "react";
 import {Router, Route, Switch, Redirect} from "react-router";
+import {connect} from "react-redux";
 
 // import Component2 from "../functional/Component2";
 // import Component3 from "../functional/Component3";
@@ -11,6 +12,8 @@ import Callback from "../functional/Callback";
 import Container6 from "../containers/Container6";
 import ProtectedRoute from "../functional/ProtectedRoute";
 import UnAuthRedirect from "../functional/UnAuthRedirect";
+import Profile from "../containers/Profile";
+import * as ACTIONS from "../store/actions/actions";
 
 import Auth0 from "../utils/auth0";
 import Auth0Check from "../utils/Auth0Check";
@@ -23,15 +26,30 @@ const handleAuthentication = (props) => {
   }
 };
 
-const PrivateRoute = ({component: Component, auth0}) => (
-  <Route
-    render={(props) =>
-      auth0.isAuthenticated() === true ? <Component auth0={auth0} {...props} /> : <Redirect to={{pathname: "/redirect"}} />
-    }
-  />
-);
+const PrivateRoute = ({component: Component, auth0}) => {
+  return (
+    <Route
+      render={(props) =>
+        auth0.isAuthenticated() === true ? <Component auth0={auth0} {...props} /> : <Redirect to={{pathname: "/redirect"}} />
+      }
+    />
+  );
+};
 
 class Routes extends React.Component {
+  //Todo: Problems with commented code below!
+  // componentDidMount() {
+  //   if (auth0.isAuthenticated()) {
+  //     this.props.login_success();
+  //     auth0.getProfile();
+  //     setTimeout(() =>{this.props.add_profile(auth0.userProfile)}, 1000)
+
+  //   } else {
+  //     this.props.login_failure();
+  //     this.props.remove_profile();
+  //   }
+  // }
+
   render() {
     return (
       <div>
@@ -57,6 +75,7 @@ class Routes extends React.Component {
               <Route path="/auth0check" render={() => <Auth0Check auth0={auth0} />} />
               <Route path="/redirect" component={UnAuthRedirect} />
               <PrivateRoute path="/privateroute" auth0={auth0} component={ProtectedRoute} />
+              <PrivateRoute path="/profile" auth0={auth0} component={Profile} />
             </Switch>
           </div>
         </Router>
@@ -65,4 +84,13 @@ class Routes extends React.Component {
   }
 }
 
-export default Routes;
+function mapDispatchToProps(dispatch) {
+  return {
+    login_success: () => dispatch(ACTIONS.login_success()),
+    login_failure: () => dispatch(ACTIONS.login_failure()),
+    add_profile: (profile) => dispatch(ACTIONS.add_profile(profile)),
+    remove_profile: () => dispatch(ACTIONS.remove_profile()),
+  };
+}
+
+export default connect(mapDispatchToProps)(Routes);
