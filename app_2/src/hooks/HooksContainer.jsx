@@ -71,6 +71,9 @@ const HooksContainer = () => {
       <br />
       <div>{context.reducerGlobalState ? <p>State prop2 is true</p> : <p>State prop2 is false</p>}</div>
       <br />
+      <p>Global State of Form:</p>
+      <div>{context.useContextSubmit ? <p>{context.useContextSubmit}</p> : <p>No User Text</p>}</div>
+      <br />
     </div>
   );
 };
