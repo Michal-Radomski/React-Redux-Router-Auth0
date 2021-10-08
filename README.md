@@ -6,5 +6,5 @@ Author of the course: [Mohammad Iqbal](https://www.udemy.com/user/mohammad-iqbal
 
 course website: <https://www.udemy.com/course/modern-react>
 
-file app_1/src/utils/auth0.js is not hosted on the GitHub.com
+files app_1/src/utils/auth0.js and app_2/src/utils/auth.js are not hosted on the GitHub.com
 
